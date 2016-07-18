@@ -219,7 +219,7 @@ void acl::AddAce( DWORD index, const void *pace )
 	if ( index >= aces.size() )
 		i = aces.end();
 	else
-		i = &aces[index];
+		i = (aces.begin() + index);
 
 	aces.insert( i, ace( pace ) );
 }
@@ -232,7 +232,7 @@ void acl::AddAce( DWORD index, const ace &ace )
 	if ( index >= aces.size() )
 		i = aces.end();
 	else
-		i = &aces[index];
+		i = (aces.begin() + index);
 
 	aces.insert( i, ace );
 }
@@ -245,7 +245,7 @@ void acl::AddAce( DWORD index, byte type, byte flags, byte inheritance, ACCESS_M
 	if ( index >= aces.size() )
 		i = aces.end();
 	else
-		i = &aces[index];
+		i = (aces.begin() + index);
 
 	aces.insert( i, ace( type, flags, inheritance, mask, psid ) );
 }
@@ -258,7 +258,7 @@ void acl::AddAce( DWORD index, byte type, byte flags, byte inheritance, ACCESS_M
 	if ( index >= aces.size() )
 		i = aces.end();
 	else
-		i = &aces[index];
+		i = (aces.begin() + index);
 
 	aces.insert( i, ace( type, flags, inheritance, mask, stringSid ) );
 }
@@ -271,7 +271,7 @@ void acl::AddAce( DWORD index, byte type, byte flags, byte inheritance, ACCESS_M
 	if ( index >= aces.size() )
 		i = aces.end();
 	else
-		i = &aces[index];
+		i = (aces.begin() + index);
 
 	aces.insert( i, ace( type, flags, inheritance, mask, newSid ) );
 }
@@ -281,7 +281,7 @@ void acl::AddAce( DWORD index, byte type, byte flags, byte inheritance, ACCESS_M
 void acl::DeleteAce( DWORD index )
 {
 	if ( index < aces.size() )
-		aces.erase( &aces[index] );
+		aces.erase((aces.begin() + index));
 	else
 		throw NEWEX( errInvalidAceIndex, "acl::DeleteAce(): ACE index out of range" );
 }
@@ -311,7 +311,7 @@ void acl::DeleteAcesForSid( const sid &delSid )
 	for ( i = aces.size() - 1; i >= 0; -- i )
 	{
 		if ( aces[i].GetSid() == delSid )
-			aces.erase( &aces[i] );
+			aces.erase((aces.begin() + i));
 	}
 }
 
@@ -330,7 +330,7 @@ void acl::normalize()
 			if ( aces[i] == aces[j] )
 			{
 				aces[i].SetMask( aces[i].GetMask() | aces[j].GetMask() );
-				aces.erase( &aces[j] );
+				aces.erase((aces.begin() + j));
 			}
 		}
 	}

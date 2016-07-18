@@ -1,7 +1,7 @@
 // recommended includes in stdafx.h (or in the precompiled header, to be precise):
 // windows.h, tchar.h, string, vector, algorithm, exception, sstream, iomanip
 
-#include "..\StdAfx.h"
+#include "StdAfx.h"
 #define FKSEC_NO_AUTO_INCLUDES 1
 #include "fksec.h"
 #include "ex.h"

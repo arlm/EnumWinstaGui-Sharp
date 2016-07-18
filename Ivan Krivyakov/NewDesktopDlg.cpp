@@ -1,7 +1,7 @@
 // NewDesktopDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "EnumWinstaGui.h"
 #include "NewDesktopDlg.h"
 

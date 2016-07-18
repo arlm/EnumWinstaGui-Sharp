@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "Xerror.h"
 
 XError::XError( DWORD ErrorCode, LPCTSTR Format, ... )

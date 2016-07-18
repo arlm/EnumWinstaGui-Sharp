@@ -1,7 +1,7 @@
 // recommended includes in stdafx.h (or in the precompiled header, to be precise):
 // windows.h, tchar.h, string, vector, algorithm, exception, sstream, iomanip
 
-#include "stdafx.h"
+#include "..\StdAfx.h"
 #define FKSEC_NO_AUTO_INCLUDES 1
 #include "fksec.h"
 #include "ex.h"
@@ -423,7 +423,7 @@ ace::AceSortOrder ace::GetAceSortOrder()
 // set ACE sort order
 // if set to asoDefault, the next call to GetAceSortOrder()
 // will resolve to either asoNT4 or asoNT5
-ace::SetAceSortOrder( AceSortOrder aso )
+void ace::SetAceSortOrder( AceSortOrder aso )
 {
 	currentAceSortOrder = aso;
 }

@@ -1,7 +1,7 @@
 // NewWinstaDlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "EnumWinstaGui.h"
 #include "NewWinstaDlg.h"
 

@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "StdAfx.h"
 #include "aclui.h"  // platform SDK
 #include "aclapi.h" // platform SDK
 #include <afxpriv.h>

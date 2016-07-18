@@ -1,7 +1,7 @@
 // recommended includes in stdafx.h (or in the precompiled header, to be precise):
 // windows.h, tchar.h, string, vector, algorithm, exception, sstream, iomanip
 
-#include "stdafx.h"
+#include "..\StdAfx.h"
 #define FKSEC_NO_AUTO_INCLUDES 1
 #include "fksec.h"
 #include "ex.h"
@@ -37,7 +37,7 @@ using fksec::initialBufferSize;
 
 
 
-void GetFileSecurity( const TCHAR *filename, SECURITY_INFORMATION whichParts, sd &sd )
+void fksec::GetFileSecurity( const TCHAR *filename, SECURITY_INFORMATION whichParts, sd &sd )
 {
 	SECURITY_DESCRIPTOR *psd;
 	DWORD needed, rc;
@@ -91,7 +91,7 @@ void GetFileSecurity( const TCHAR *filename, SECURITY_INFORMATION whichParts, sd
 
 
 
-void SetFileSecurity( const TCHAR *filename, SECURITY_INFORMATION whichParts, const sd &sd )
+void fksec::SetFileSecurity( const TCHAR *filename, SECURITY_INFORMATION whichParts, const sd &sd )
 {
 	DWORD rc;
 	bool haveRetriedPrivilege = false;
@@ -130,7 +130,7 @@ void SetFileSecurity( const TCHAR *filename, SECURITY_INFORMATION whichParts, co
 
 
 
-void GetKernelObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, sd &sd )
+void fksec::GetKernelObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, sd &sd )
 {
 	SECURITY_DESCRIPTOR *psd;
 	DWORD needed, rc;
@@ -184,7 +184,7 @@ void GetKernelObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, sd &sd 
 
 
 
-void SetKernelObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, const sd &sd )
+void fksec::SetKernelObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, const sd &sd )
 {
 	DWORD rc;
 	bool haveRetriedPrivilege = false;
@@ -223,7 +223,7 @@ void SetKernelObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, const s
 
 
 
-void GetUserObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, sd &sd )
+void fksec::GetUserObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, sd &sd )
 {
 	SECURITY_DESCRIPTOR *psd;
 	DWORD needed, rc;
@@ -277,7 +277,7 @@ void GetUserObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, sd &sd )
 
 
 
-void SetUserObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, const sd &sd )
+void fksec::SetUserObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, const sd &sd )
 {
 	DWORD rc;
 	bool haveRetriedPrivilege = false;
@@ -316,7 +316,7 @@ void SetUserObjectSecurity( HANDLE h, SECURITY_INFORMATION whichParts, const sd 
 
 
 
-void QueryServiceObjectSecurity( SC_HANDLE hSvc, SECURITY_INFORMATION whichParts, sd &sd )
+void fksec::QueryServiceObjectSecurity( SC_HANDLE hSvc, SECURITY_INFORMATION whichParts, sd &sd )
 {
 	SECURITY_DESCRIPTOR *psd;
 	DWORD needed, rc;
@@ -370,7 +370,7 @@ void QueryServiceObjectSecurity( SC_HANDLE hSvc, SECURITY_INFORMATION whichParts
 
 
 
-void SetServiceObjectSecurity( SC_HANDLE hSvc, SECURITY_INFORMATION whichParts, const sd &sd )
+void fksec::SetServiceObjectSecurity( SC_HANDLE hSvc, SECURITY_INFORMATION whichParts, const sd &sd )
 {
 	DWORD rc;
 	bool haveRetriedPrivilege = false;
@@ -409,7 +409,7 @@ void SetServiceObjectSecurity( SC_HANDLE hSvc, SECURITY_INFORMATION whichParts, 
 
 
 
-void RegGetKeySecurity( HKEY hk, SECURITY_INFORMATION whichParts, sd &sd )
+void fksec::RegGetKeySecurity( HKEY hk, SECURITY_INFORMATION whichParts, sd &sd )
 {
 	SECURITY_DESCRIPTOR *psd;
 	DWORD needed, rc;
@@ -460,7 +460,7 @@ void RegGetKeySecurity( HKEY hk, SECURITY_INFORMATION whichParts, sd &sd )
 
 
 
-void RegSetKeySecurity( HKEY hk, SECURITY_INFORMATION whichParts, const sd &sd )
+void fksec::RegSetKeySecurity( HKEY hk, SECURITY_INFORMATION whichParts, const sd &sd )
 {
 	DWORD rc;
 	bool haveRetriedPrivilege = false;

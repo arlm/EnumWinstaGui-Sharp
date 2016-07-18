@@ -82,7 +82,7 @@ namespace fksec {
 		// ACE sort order control
 		enum AceSortOrder { asoDefault, asoNT4, asoNT5 };
 		static AceSortOrder GetAceSortOrder();
-		static SetAceSortOrder( AceSortOrder aso );
+		static void SetAceSortOrder( AceSortOrder aso );
 
 	private:
 		// initialize the PACE part
